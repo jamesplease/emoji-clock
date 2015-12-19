@@ -1,0 +1,33 @@
+{
+  "name": "emoji-clock",
+  "version": "0.0.1",
+  "description": "A web component for an emoji clock",
+  "main": "dist/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmeas/emoji-clock.git"
+  },
+  "keywords": [
+    "emoji",
+    "clock",
+    "time",
+    "hour",
+    "minute",
+    "web",
+    "component",
+    "web",
+    "component"
+  ],
+  "author": "Jmeas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmeas/emoji-clock/issues"
+  },
+  "homepage": "https://github.com/jmeas/emoji-clock#readme"
+}

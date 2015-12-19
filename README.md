@@ -43,4 +43,3 @@ The web component has a single custom attribute: `time`. The format should be `h
 on numbers are optional. For instance, two twenty can be written as `2:20` or `02:20`.
 
 Dynamically updating the attribute in JavaScript will update the emoji that is displayed.
-
