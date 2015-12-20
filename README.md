@@ -12,11 +12,7 @@ It's just an experiment; so far I've only tested that it works on Chrome 47.
 
 ### Installation
 
-Install this through npm.
-
-```sh
-npm install emoji-clock
-```
+It's not particularly easy to install this thing yet. Check back soon!
 
 ### Getting Started
 
