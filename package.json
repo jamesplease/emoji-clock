@@ -29,5 +29,12 @@
   "bugs": {
     "url": "https://github.com/jmeas/emoji-clock/issues"
   },
-  "homepage": "https://github.com/jmeas/emoji-clock#readme"
+  "homepage": "https://github.com/jmeas/emoji-clock#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-csso": "^1.0.1",
+    "gulp-minify-css": "^1.2.2",
+    "gulp.spritesmith": "^6.0.0",
+    "merge-stream": "^1.0.0"
+  }
 }

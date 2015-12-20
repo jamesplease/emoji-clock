@@ -33,17 +33,31 @@ function generateImageElement(timeValue) {
   var roundedTimeValues = roundTime(hour, minute);
   var roundedHour = String(roundedTimeValues.hour);
   var roundedMinute = String(roundedTimeValues.minute);
-  var emojiTimeValue = roundedHour + roundedMinute;
+  var emojiTimeValue = roundedHour;
+  if (roundedMinute !== '0') {
+    emojiTimeValue += roundedMinute;
+  }
+
+  // The wrapper is ultimately because I want to use sprites with the `img` tag.
+  // For that to work, the CSS `clip` property must be used on the `img`. That
+  // property requires that the image itself be absolutely positioned. This
+  // relatively positioned parent ensures that the child isn't positioned
+  // in relationship to anything outside of the web component.
+  var wrapper = document.createElement('div');
+  wrapper.style.position = 'relative';
 
   var img = document.createElement('img');
-  img.alt = '../src/emoji/clock' + emojiTimeValue + '.png';
-  img.src = '../src/emoji/clock' + emojiTimeValue + '.png';
+  img.alt = hour + ':' + minute;
+  img.src = '../dist/emoji-clock.png';
   // This allows developers to adjust the dimensions of this image
   // by applying the changes to the `emoji-clock` element directly.
   img.style.width = 'inherit';
   img.style.height = 'inherit';
+  img.style.position = 'absolute';
+  img.className = 'icon-clock' + emojiTimeValue;
 
-  return img;
+  wrapper.appendChild(img);
+  return wrapper;
 }
 
 var emojiClock = Object.create(HTMLElement.prototype);
@@ -53,6 +67,7 @@ Object.assign(emojiClock, {
     var shadow = this.createShadowRoot();
     var timeValue = this.getAttribute('time');
     var img = generateImageElement(timeValue);
+    shadow.innerHTML += '<style>@import url("../dist/emoji-clock.css");</style>';
     shadow.appendChild(img);
   },
 

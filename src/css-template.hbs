@@ -1,0 +1,24 @@
+{{#block "sprites-comment"}}
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
+*/
+{{/block}}
+{{#block "sprites"}}
+{{#each sprites}}
+.icon-{{{name}}} {
+  top: {{px.offset_y}};
+  left: {{px.offset_x}};
+  {{! Pretty gross, huh? This defines a rectangle that encloses the clock }}
+  -webkit-clip-path: polygon({{px.x}} {{px.y}}, calc({{px.x}} + {{px.width}}) {{px.y}}, calc({{px.x}} + {{px.width}}) calc({{px.y}} + {{px.height}}), {{px.x}} calc({{px.y}} + {{px.height}}));
+  clip-path: polygon({{px.x}} {{px.y}}, calc({{px.x}} + {{px.width}}) {{px.y}}, calc({{px.x}} + {{px.width}}) calc({{px.y}} + {{px.height}}), {{px.x}} calc({{px.y}} + {{px.height}}));
+}
+{{/each}}
+{{/block}}
