@@ -16,6 +16,10 @@ function roundTime(hour, minute) {
     minute = 0;
   }
 
+  if (hour > 12) {
+    hour = 1;
+  }
+
   return {
     minute: minute,
     hour: hour
@@ -78,8 +82,9 @@ Object.assign(emojiClock, {
     if (attr !== 'time') {
       return;
     }
-    var img = generateImageElement(newVal);
-    this.shadowRoot.appendChild(img);
+    var className = generateClassName(newVal);
+    var img = this.shadowRoot.querySelector('img');
+    img.className = className;
   }
 });
 
