@@ -16,6 +16,10 @@ function roundTime(hour, minute) {
     minute = 0;
   }
 
+  // There's very little in the way of error-handling in this little
+  // example. The only "edge-case" that this quick little algorithm
+  // covers is cases like 12:50 being rounded to 1:00. This isn't intended
+  // to adequately handle someone inputting a crazy time, like "43:70."
   if (hour > 12) {
     hour = 1;
   }
@@ -28,7 +32,7 @@ function roundTime(hour, minute) {
 
 // Pass in the `timeValue`, get back an image element for that emoji clock
 function generateClassName(timeValue) {
-  // The element only supports times in the format hours:minutes;
+    // The element only supports times in the format hours:minutes;
     // leading zeros (like 03:20) are okay.
     var timeValues = timeValue.split(':');
     var hour = Number(timeValues[0]);
@@ -53,8 +57,7 @@ Object.assign(emojiClock, {
     var className = generateClassName(timeValue);
 
     // I know, I know. This is a little repetitious based on the code in
-    // `generateClassName`. I couldn't think of a way to rewrite this code
-    // any DRYer without having a silly function.
+    // `generateClassName`.
     var timeValues = timeValue.split(':');
     var hour = Number(timeValues[0]);
     var minute = Number(timeValues[1]);
@@ -87,5 +90,3 @@ Object.assign(emojiClock, {
     img.className = className;
   }
 });
-
-document.registerElement('emoji-clock', {prototype: emojiClock});

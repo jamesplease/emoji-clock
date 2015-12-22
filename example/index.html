@@ -5,6 +5,9 @@
   <title>Document</title>
   <link rel="stylesheet" href="../dist/emoji-clock.css">
   <script src="../src/emoji-clock.js"></script>
+  <script>
+    document.registerElement('emoji-clock', {prototype: emojiClock});
+  </script>
 </head>
 <body>
   <emoji-clock time="1:48">
